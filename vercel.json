@@ -2,5 +2,8 @@
     "routes": [
         { "src": "/api/.*", "dest": "/api/vercel.js" },
         { "src": "/.*", "dest": "/api/vercel.js" }
-    ]
+    ],
+    "github": {
+        "silent": true
+    }
 }
