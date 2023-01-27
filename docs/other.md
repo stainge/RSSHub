@@ -95,7 +95,7 @@ pageClass: routes
 
 ### 文章
 
-<Route author="hoilc" example="/clickme/default/category/beauty" path="/clickme/:site/:grouping/:name" :paramsDesc="['站点, `default`为普通站, `r18`为成人站, 其它值默认为普通站','分组方式, `category`为分类, `tag`为标签, 其他值默认为分类','分类名或标签名, 分类名为英文, 可以在分类 URL 中找到']" />
+<Route author="hoilc" example="/clickme/default/category/beauty" path="/clickme/:site/:grouping/:name" :paramsDesc="['站点，`default`为普通站，`r18`为成人站，其它值默认为普通站','分组方式，`category`为分类，`tag`为标签，其他值默认为分类','分类名或标签名，分类名为英文，可以在分类 URL 中找到']" radar="1"/>
 
 ## Darwin Awards
 
@@ -154,6 +154,14 @@ pageClass: routes
 支持 iyouport.org 页面 Header 全部分类。例如，`https://www.iyouport.org/category/osint` 对应 `/iyouport/osint`。若不填写 `category`，则输出全部文章，但比旧版首页 feed 有更多元数据。
 
 <Route author="proletarius101" example="/iyouport/osint" path="/iyouport/:category?"/>
+
+## Layoffs.fyi
+
+### 裁员数据跟踪
+
+<Route author="BrandNewLifeJackie26" example="/layoffs" path="/layoffs" radar="1"/>
+
+该网站原始 RSS 数据源无人维护，故重新抓取数据并生成数据源。
 
 ## MiniFlux
 
