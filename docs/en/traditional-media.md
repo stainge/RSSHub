@@ -350,16 +350,10 @@ Only `s00017` is in English.
 | hi     | id               | ko  | fa    | pt        | ru      | es      |
 
 | Kiswahili | ภาษาไทย | Türkçe | Українська | اردو | Tiếng Việt |
-| --------- | | ------- | ------ | ---------- | ---- | ---------- |
+| --------- | ------- | ------ | ---------- | ---- | ---------- |
 | sw        | th      | tr     | uk         | ur   | vi         |
 
 </RouteEn>
-
-## Nikkei Asia
-
-### Latest News
-
-<RouteEn author="rainrdx" example="/nikkei-asia" path="/nikkei-asia"/>
 
 ## Radio Free Asia (RFA)
 
@@ -660,11 +654,41 @@ Provides all of the articles by the specified New York Times author.
 | series-books|
 | young-adult-hardcover|
 
+## The Nikkei 日本経済新聞
+
+### Home
+
+<RouteEn author="zjysdhr" example="/nikkei/index" path="/nikkei/index" radar="1" rssbud="1" />
+
+### News
+
+<RouteEn author="Arracc" example="/nikkei/news" path="/nikkei/:category/:article_type?" :paramsDesc="['Category, see table below','Only includes free articles, set `free` to enable, disabled by default']">
+
+| 総合  | オピニオン | 経済     |  政治     | 金融      | マーケット | ビジネス | マネーのまなび | テック      | 国際           | スポーツ | 社会・調査 |  地域    | 文化     | ライフスタイル  |
+| ---- | --------- | ------- | -------- | --------- | -------- | ------- | ----------- | ---------- | ------------- | ------- | --------- | ------- | ------- | ------------- |
+| news |  opinion  | economy | politics | financial | business | 不支持   | 不支持       | technology | international | sports  | society   | local   | culture | lifestyle     |
+
+</RouteEn>
+
+### Nikkei Asia Latest News
+
+<RouteEn author="rainrdx" example="/nikkei/asia" path="/nikkei/asia" radar="1"/>
+
 ## The Wall Street Journal (WSJ)
 
 ### News
 
-<RouteEn author="oppilate" example="/wsj/en-us/opinion" path="/wsj/:lang/:category?" :paramsDesc="['Language, `en-us`, `zh-cn`, `zh-tw` are supported', 'Category, only supported in `en-us`. Supports `opinion`, `world_news`, `us_bussiness`, `market_news`, `technology`, `lifestyle`.']">
+<RouteEn author="oppilate NavePnow" example="/wsj/en-us/opinion" path="/wsj/:lang/:category?" :paramsDesc="['Language, `en-us`, `zh-cn`, `zh-tw`', 'Category. See below']">
+
+en_us
+| World | U.S. | Politics | Economy | Business | Tech | Markets | Opinion | Books & Arts | Real Estate | Life & Work | Sytle | Sports |
+| ------ | ------- | -------- | -------- | ----- | --------- | --------- | --------- | --------- | --------- |--------- | --------- | --------- |
+| world | us | politics | economy | business | technology | markets | opinion | books-arts | realestate | life-work | style-entertainment | sports |
+
+zh-cn / zh-tw
+| 国际 | 中国 | 金融市场 | 经济 | 商业 | 科技 | 派 | 专栏与观点 |
+| ------ | ------- | -------- | -------- | ----- | --------- | --------- | --------- |
+| world | china | markets | economy | business | technology | life-arts | opinion |
 
 Provide full article RSS for WSJ topics.
 
