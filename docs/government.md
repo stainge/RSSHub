@@ -144,6 +144,12 @@ pageClass: routes
 
 </Route>
 
+### 人力社保局
+
+#### 人事考试通知
+
+<Route author="Mai19930513" example="/gov/chongqing/rsks" path="/gov/chongqing/rsks" radar="1"/>
+
 ## 德阳市人民政府
 
 ### 政府公开信息
@@ -717,6 +723,12 @@ pageClass: routes
 ### 年度信息自由法报告
 
 <Route author="nczitzk" example="/cia/foia-annual-report" path="/cia/foia-annual-report"/>
+
+## 南京鼓楼医院
+
+### 员工版教育培训
+
+<Route author="real-jiakai" example="/njglyy/ygbjypx" path="/njglyy/ygbjypx" radar="1" />
 
 ## 南京市人民政府
 
