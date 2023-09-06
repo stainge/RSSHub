@@ -42,7 +42,7 @@ Tiny Tiny RSS 会给所有 iframe 元素添加 `sandbox="allow-scripts"` 属性�
 
 ### UP 主动态 {#bilibili-up-zhu-dong-tai}
 
-<Route author="DIYgod zytomorrow JimenezLi" example="/bilibili/user/dynamic/2267573" path="/bilibili/user/dynamic/:uid/:routeParams?" paramsDesc={['用户 id, 可在 UP 主主页中找到', '额外参数；请参阅以下说明和表格']} radar="1" rssbud="1">
+<Route author="DIYgod zytomorrow CaoMeiYouRen JimenezLi" example="/bilibili/user/dynamic/2267573" path="/bilibili/user/dynamic/:uid/:routeParams?" paramsDesc={['用户 id, 可在 UP 主主页中找到', '额外参数；请参阅以下说明和表格']} radar="1" rssbud="1">
 
 | 键 | 含义 | 接受的值 | 默认值 |
 | -- | ---- | ------- | ------ |
@@ -293,6 +293,18 @@ UP 主关注用户现在需要 b 站登录后的 Cookie 值，所以只能自建
 :::caution
 
 用户动态需要 b 站登录后的 Cookie 值，所以只能自建，详情见部署页面的配置模块。
+
+:::
+
+</Route>
+
+### 用户稍后再看 {#bilibili-yong-hu-shao-hou-zai-kan}
+
+<Route author="JimenezLi" example="/bilibili/watchlater/2267573" path="/bilibili/watchlater/:uid/:disableEmbed?" paramsDesc={['用户 id', '默认为开启内嵌视频, 任意值为关闭']} selfhost="1">
+
+:::caution
+
+用户稍后再看需要 b 站登录后的 Cookie 值，所以只能自建，详情见部署页面的配置模块。
 
 :::
 
