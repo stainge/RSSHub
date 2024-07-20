@@ -17,7 +17,7 @@ export const route: Route = {
                 description: 'Please see above for details.',
             },
             {
-                name: 'TWITTER_COOKIE',
+                name: 'TWITTER_AUTH_TOKEN',
                 description: 'Please see above for details.',
             },
         ],
@@ -32,7 +32,7 @@ export const route: Route = {
     handler,
     radar: [
         {
-            source: ['twitter.com/home'],
+            source: ['x.com/home'],
             target: '/home',
         },
     ],
@@ -51,7 +51,7 @@ async function handler(ctx) {
 
     return {
         title: `Twitter following timeline`,
-        link: `https://twitter.com/home`,
+        link: `https://x.com/home`,
         // description: userInfo?.description,
         item: utils.ProcessFeed(ctx, {
             data,

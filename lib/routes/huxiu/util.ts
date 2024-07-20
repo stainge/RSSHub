@@ -5,7 +5,7 @@ import got from '@/utils/got';
 import { load } from 'cheerio';
 import { parseDate } from '@/utils/parse-date';
 import { art } from '@/utils/render';
-import * as path from 'node:path';
+import path from 'node:path';
 import CryptoJS from 'crypto-js';
 
 const domain = 'huxiu.com';
@@ -376,7 +376,7 @@ const processItems = async (items, limit, tryGet) => {
                 }),
                 author: item.user_info?.username ?? item.brief_column?.name ?? item.author_info?.username ?? item.author,
                 guid,
-                pubDate: item.publish_time ?? item.dateline ? parseDate(item.publish_time ?? item.dateline, 'X') : undefined,
+                pubDate: (item.publish_time ?? item.dateline) ? parseDate(item.publish_time ?? item.dateline, 'X') : undefined,
                 upvotes: Number.parseInt(upvotes, 10),
                 downvotes: Number.parseInt(downvotes, 10),
                 comments: Number.parseInt(comments, 10),

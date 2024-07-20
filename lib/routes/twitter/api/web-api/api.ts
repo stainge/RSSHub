@@ -2,6 +2,7 @@ import { baseUrl, gqlMap, gqlFeatures } from './constants';
 import { config } from '@/config';
 import cache from '@/utils/cache';
 import { twitterGot, paginationTweets, gatherLegacyFromData } from './utils';
+import InvalidParameterError from '@/errors/types/invalid-parameter';
 
 const getUserData = (id) =>
     cache.tryGet(`twitter-userdata-${id}`, () => {
@@ -33,7 +34,8 @@ const cacheTryGet = async (_id, params, func) => {
     const userData: any = await getUserData(_id);
     const id = (userData.data?.user || userData.data?.user_result)?.result?.rest_id;
     if (id === undefined) {
-        throw new Error('User not found');
+        cache.set(`twitter-userdata-${_id}`, '', config.cache.contentExpire);
+        throw new InvalidParameterError('User not found');
     }
     const funcName = func.name;
     const paramsString = JSON.stringify(params);
@@ -45,7 +47,11 @@ const getUserTweets = (id: string, params?: Record<string, any>) =>
         gatherLegacyFromData(
             await paginationTweets('UserTweets', id, {
                 ...params,
+                count: 20,
+                includePromotedContent: true,
                 withQuickPromoteEligibilityTweetFields: true,
+                withVoice: true,
+                withV2Timeline: true,
             })
         )
     );
@@ -92,7 +98,19 @@ const getUserMedia = (id: string, params?: Record<string, any>) =>
         );
     });
 
-const getUserLikes = (id: string, params?: Record<string, any>) => cacheTryGet(id, params, async (id, params = {}) => gatherLegacyFromData(await paginationTweets('Likes', id, params)));
+const getUserLikes = (id: string, params?: Record<string, any>) =>
+    cacheTryGet(id, params, async (id, params = {}) =>
+        gatherLegacyFromData(
+            await paginationTweets('Likes', id, {
+                ...params,
+                includeHasBirdwatchNotes: false,
+                includePromotedContent: false,
+                withBirdwatchNotes: false,
+                withVoice: false,
+                withV2Timeline: true,
+            })
+        )
+    );
 
 const getUserTweet = (id: string, params?: Record<string, any>) =>
     cacheTryGet(id, params, async (id, params = {}) =>
